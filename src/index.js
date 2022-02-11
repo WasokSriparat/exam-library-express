@@ -5,6 +5,7 @@ const cors = require('cors');
 const port = process.env.PORT || 4002;
 
 const staffRoute = require("./routes/staffRoute");
+const borrowRoute = require("./routes/borrowRoute");
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ require("./db")(app);
 
 // localhost:4000/staff
 app.use("/staff",staffRoute);
+app.use("/borrow",borrowRoute);
 
 app.get("/",(req,res)=>{
     res.send("Hello Index");
